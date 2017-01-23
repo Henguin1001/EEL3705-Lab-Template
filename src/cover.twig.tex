@@ -9,6 +9,7 @@
 
 {% block content %}
   {% if __.args.cov == "off" %}
+  {% else %}
     \pagenumbering{roman}
 
     {{ title.generate(settings.title) }}
@@ -16,6 +17,8 @@
     \clearpage
     \newpage
     \tableofcontents
+    \listoftables
+    \listoffigures
     \newpage
     \pagenumbering{arabic}
   {% endif %}

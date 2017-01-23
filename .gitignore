@@ -2,4 +2,7 @@
 *.aux
 *.toc
 *.pdf
+*.lot
+*.lof
+*.out
 node_modules

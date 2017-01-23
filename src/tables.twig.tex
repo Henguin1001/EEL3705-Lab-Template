@@ -1,0 +1,16 @@
+
+{% macro ohm(data, r, n) %}
+  {% import 'macros.twig.tex' as mac %}
+  {% set table = addColumnMath(data, "round(B/" ~ r ~ ", 3)", 1) %}
+  {{editCell(table, 0, 2, "$I_{R" ~ n ~ "}$ (mA)")}}
+  {{mac.placeTable(table, "Verification of Ohm's Law using resistor $R_" ~ n ~ "$", "ohm" ~ n)}}
+{% endmacro %}
+
+{% macro power(data, v) %}
+  {% import 'macros.twig.tex' as mac %}
+  {% set table = addColumnMath(data, ["round(B*C,3)", "round(" ~ v ~ "*C,3)", "round(100*(B*C)/(" ~ v ~ "*C),2)"], 1) %}
+  {{editCell(table, 0,3, "$P_L$ (mW)")}}
+  {{editCell(table, 0,4, "$P_{in}$ (mW)")}}
+  {{editCell(table, 0,5, "Efficiency (\%)")}}
+  {{mac.placeTable(table, "Determination of maximum power transfer", "maxpower")}}
+{% endmacro %}

@@ -21,7 +21,7 @@ module.exports = function(extend){
   extend.extendFunction('addColumnMath', function(arr, formula, start, end){
     if(Array.isArray(arr)){
       if(Array.isArray(formula)){
-        var test = arr.map(function(row, y){
+        return arr.map(function(row, y){
           var scope = {y:y};
           row.forEach(function(column, x){
             var key = String.fromCharCode(65 + x);
@@ -37,8 +37,6 @@ module.exports = function(extend){
           }
           return temp;
         });
-        console.log(test);
-        return test;
       } else {
         return arr.map(function(row, y){
           var scope = {y:y};

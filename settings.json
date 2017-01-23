@@ -1,10 +1,11 @@
 {
   "title":{
     "number":"1",
-    "title":"Prelab: DC Circuits I",
+    "title":"DC Circuits I: Voltage, Current, Resistance, Ohm’s Law, and Electric Power",
     "section":"1",
     "name":"Henry Troutman",
     "partner":"Ross Fleming",
-    "instructor":"Ifedayo Ogundana"
+    "instructor":"Dr. Petru Andrei",
+    "assistant":"Ifedayo Ogundana"
   }
 }

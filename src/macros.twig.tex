@@ -8,6 +8,7 @@
 {% macro placeTable(arr, caption, label) %}
   {% import _self as body %}
   \begin{table}[!ht]
+  \captionsetup{font=large}
   \centering
   \caption{ {{ caption }} }
   \label{tab: {{label}} }
@@ -24,4 +25,12 @@
   \end{tabular}
   \end{table}
 
+{% endmacro %}
+
+{% macro image(file, caption, size, ref) %}
+  \begin{figure}[!ht]
+  \centering
+  \caption{{ '{' ~ caption ~ '\label{fig:' ~ref~ '}}' }}
+  \includegraphics[width={{size}}\textwidth]{{ '{'~ file ~'}'}}
+  \end{figure}
 {% endmacro %}
