@@ -1,0 +1,31 @@
+{% macro generate(settings)%}
+  \begin{titlepage}
+    \centering
+    	{\scshape\LARGE FAMU-FSU College of Engineering \par}
+    	\vspace{0.75cm}
+    	{\scshape\large Department of Electrical and Computer Engineering\par}
+    	\vspace{0.25cm}
+      {\scshape\large\bfseries EEL3112L – Advanced Circuits with Computers Lab  \par}
+      \vspace{0.25cm}
+    	{\scshape\large \textit{ Spring 2017 Semester} \par}
+    	\vspace{1.2cm}
+      {\Large\bfseries {{ settings.title }} \par}
+      \vspace{1cm}
+      \vfill
+      \def\arraystretch{2.5}
+      \begin{tabular}{  l  r  }
+        \hline
+
+          {\large\textbf{Lab Number:} }  & { \large {{settings.number}} } \\ \hline
+          {\large\textbf{Section:} }  & { \large {{settings.section}} } \\ \hline
+          {\large\textbf{Name:} }  & { \large {{settings.name}} } \\ \hline
+          {\large\textbf{Partner:} }  & { \large {{settings.partner}} } \\ \hline
+          {\large\textbf{Instructor:} }  & { \large {{settings.instructor}} } \\ \hline
+          {\large\textbf{Date:} }  & { \large \today } \\ \hline
+
+        \end{tabular}
+        \vspace{3cm}
+
+  \end{titlepage}
+
+{% endmacro %}

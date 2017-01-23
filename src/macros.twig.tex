@@ -1,0 +1,27 @@
+
+{# MACROS: #}
+
+{% macro tableFormat(arr, delim) %}
+  {% for item in arr[0] %}{% if loop.first %}{{delim}} l {% else %}{{delim}} c {% endif %}{% if loop.last %}{{delim}} r {{delim}}{% endif %}{% endfor %}
+{% endmacro %}
+
+{% macro placeTable(arr, caption, label) %}
+  {% import _self as body %}
+  \begin{table}[!ht]
+  \centering
+  \caption{ {{ caption }} }
+  \label{tab: {{label}} }
+  \begin{tabular}{ {{body.tableFormat(arr, '|')}} }
+  \hline
+
+  {% for row in arr %}
+  {% for column in row %}
+  {{column}} {% if not loop.last %}&{% endif %}
+  {% endfor %}
+  \\ \hline
+  {% endfor %}
+
+  \end{tabular}
+  \end{table}
+
+{% endmacro %}
