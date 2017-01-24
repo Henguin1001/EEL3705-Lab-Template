@@ -1,0 +1,70 @@
+{% import '../src/macros.twig.tex' as mac %}
+
+From the Lab Manual \cite{manual} :
+\subsection{Part A: Verification of Ohm's Law}
+\label{sub:Procedure Part A}
+\begin{enumerate}
+  \item Build the circuit shown in Figure~\ref{fig:ohmschem}  on the bread board.
+  {{ mac.image("img/c1.png", "Schematic for Verifying Ohm's Law", "0.75", "ohmschem")}}
+  \item Make the following connections between the Analog Discovery pins and the nodes on the
+  board:
+  \begin{itemize}
+    \item 1 – WaveGen1, W1 (Solid Yellow Line)
+    \item 1 – Scope Channel, 1+ (Solid Orange)
+    \item 0 – Ground (Black)
+    \item 0 – Scope Channel, 1- (Striped Orange)
+  \end{itemize}
+
+  \item Activate the Digilent Waveforms button which would display a window (Digilent
+  WaveForms 1) as shown in Figure~\ref{fig:dadwg}. The first step is to adjust the WaveGen.
+  Click on the WaveGen button and set the arbitrary waveform generator to generate a DC
+  voltage of amplitude 0 volts and 0 offset.
+  {{ mac.image("img/awg.png", "Digilent Analog Discovery WaveGen setup", "0.75", "dadwg")}}
+
+
+  \item After making the adjustments on wave generator click the Run AWG1
+  \item To observe the output, activate the voltmeter by clicking on the Voltmeter under the
+  More Instruments tab.
+  \item Record the voltage across the resistor and fill in the table as the voltage source varies from
+  0 to 5 V. Replace resistor R1 with R2 and fill in Table 3 by varying the voltage source from 0 to 5
+  V.
+\end{enumerate}
+\vspace{1cm}
+
+\subsection{Part B: Investigation of Electric Power Transfer}
+\label{sub:Procedure Part B}
+\begin{enumerate}
+  \item Build the circuit shown in Figure~\ref{fig:maxpowerschem}  on the bread board.
+  {{ mac.image("img/c2.png", "Schematic for Measuring Maximum Power Transfer", "0.75", "maxpowerschem")}}
+  \item Make the following connections between the Analog Discovery pins and the nodes on the
+  board:
+  \begin{itemize}
+    \item 1 – WaveGen1, W1 (Solid Yellow Line)
+    \item 2 – Scope Channel, 1+ (Solid Orange)
+    \item 0 – Scope Channel, 1- (Striped Orange)
+    \item 0 – Ground (Black)
+  \end{itemize}
+  \item Activate the Digilent Waveforms button which would display a window (Digilent
+  WaveForms 1) as shown in Figure~\ref{fig:dadwg}. The first step is to adjust the WaveGen.
+  Click on the WaveGen button and set the arbitrary waveform generator to generate a DC
+  voltage of amplitude 5 volts and 0 offset.
+  \item After making the adjustments on wave generator click the Run AWG1
+  \item To observe the output, activate the voltmeter by clicking on the Voltmeter under the
+  More Instruments tab.
+  \item Record the voltage across the load resistor ($R_L$) and the current through the load resistor
+  ($R_L$).
+  \item Replace the first load resistor with the second load resistor and record the values in the
+  table. Repeat this process till all the resistances are filled.
+  \item Make the necessary calculations (Equation \ref{eq:1}) to complete the rest of the table and plot efficiency ($\eta$) as a
+function of the load resistance.
+  \begin{equation}
+    \begin{gathered}
+      P_L = V_L \times I_L \\
+      P_{in} = V_S \times I_L \\
+      \eta = 100 \times \frac{P_L}{P_{in}}
+    \end{gathered}\label{eq:1}
+  \end{equation}
+
+
+
+\end{enumerate}

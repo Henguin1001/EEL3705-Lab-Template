@@ -11,24 +11,27 @@
 
 {% block body %}
 
-  \section{Overview}
-  \label{sec:Overview}
-  {% include 'content/overview.twig.tex' %}
+  {% include 'content/intro.twig.tex' %}
   \clearpage
 
-  \section{Analysis}
-  \label{sec:Analysis}
-  {% include 'content/analysis.twig.tex' %}
+  \section{Experimental Procedure}
+  \label{sec:procedure}
+  {% include 'content/procedure.twig.tex' %}
   \clearpage
 
-  \section{Experimental Evidence}
-  \label{sec:Experimental Evidence}
-  {% include 'content/evidence.twig.tex' %}
+  \section{Results}
+  \label{sec:results}
+  {% include 'content/results.twig.tex' %}
   \clearpage
 
-  \section{Conclusion}
-  \label{sec:Conclusion}
   {% include 'content/conclusion.twig.tex' %}
   \clearpage
+
+  \begin{thebibliography}{9}
+    \bibitem{manual}
+    Dr. Petru Andrei, Ifedayo Ogundana, and Jose Cordova.
+    \textit{Lab 1 DC Circuits I: Voltage, Current, Resistance, Ohm’s Law, and Electric Power}
+  \end{thebibliography}
+
 
 {% endblock %}
