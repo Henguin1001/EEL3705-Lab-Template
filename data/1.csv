@@ -1,12 +1,9 @@
-Resistor, Color Code, Calculated Value ($ k \Omega $), Measured Value ($ k \Omega $)
-1,Brown Black Red Gold, 1, 0.99
-2,Red Red Red Gold, 2.2, 2.18
-3,Brown Black Brown Gold, 0.1, 0.099
-4,Blue Blue Red Gold, 6.8,6.8
-5,Brown Black Black Gold, 0.01, 0.01
-6,Orange Orange Red, 3.3,3.25
-7,Brown Green Red Gold, 1.5,1.46
-8,Yellow Purple Black Gold, 0.047, 0.046
-9,Orange White Black Gold, 0.039, 0.039
-10,Red Purple Black Gold, 0.027, 0.027
-11,Red Black Black Brown Brown, 2, 2 
+Resistor, Color Code, Calculated Value ($ k \Omega $)
+1,Brown Black Red Gold, 1
+2,Brown Green Red Gold, 1.5
+3,Red Black Black Brown Brown, 2
+4,Red Red Red Gold, 2.2
+5,Orange Orange Red Gold, 3.3
+6,Yellow Orange Red Gold, 4.3
+7,Yellow Purple Red Gold, 4.7
+8,Blue Blue Red Gold, 6.8
