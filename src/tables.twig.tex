@@ -13,3 +13,14 @@
   {{editCell(table, 0,4, "\% Power Absorbed")}}
   {{mac.placeTable(table, description, "power"~p)}}
 {% endmacro %}
+
+{% macro divider(data, p, description) %}
+  {% import 'macros.twig.tex' as mac %}
+  {% if isArray(data) %}
+    {% set table = addColumnMath(data, ["round(A*B,3)", "round((100*A*B)/" ~ p ~ ",2)"], 1) %}
+    {{ print(table) }}
+    {{editCell(table, 0,3, "Power Absorbed(mW)")}}
+    {{editCell(table, 0,4, "\% Power Absorbed")}}
+    {{mac.placeTable(table, description ~ " divider measurements and derived results ", description)}}
+  {% endif %}
+{% endmacro %}

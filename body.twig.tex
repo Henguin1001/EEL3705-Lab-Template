@@ -3,9 +3,11 @@
 
 {% block packages %}
 \usepackage{enumerate}
-\usepackage{amsmath}
+\usepackage[fleqn]{amsmath}
 \usepackage{caption}
 \usepackage[hidelinks]{hyperref}
+\newcommand{\parallelsum}{\mathbin{\|}}
+
 {{ parent() }}
 {% endblock %}
 
@@ -30,7 +32,7 @@
   \begin{thebibliography}{9}
     \bibitem{manual}
     Dr. Petru Andrei, Ifedayo Ogundana, and Jose Cordova.
-    \textit{Lab 1 DC Circuits I: Voltage, Current, Resistance, Ohm’s Law, and Electric Power}
+    \textit{Lab 2 DC Circuits II: KCL, KVL, Series and Parallel Resistive Networks}
   \end{thebibliography}
 
 

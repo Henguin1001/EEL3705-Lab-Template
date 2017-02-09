@@ -1,0 +1,37 @@
+{{ extend('lib/extension.js') }}
+{# Tools for tables #}
+{# ex: (4,'|') => '|l|c|c|r|' #}
+{% macro tableFormat(n, delim) %}
+  {% for item in 1..n %}{% if loop.first %}{{delim}} l {% else %}{{delim}} c {% endif %}{% if loop.last %}{{delim}} r {{delim}}{% endif %}{% endfor %}
+{% endmacro %}
+
+{% macro placeTable(tableRaw, caption, label) %}
+  \begin{table}[!ht]
+  \captionsetup{font=large}
+  \centering
+  {% if caption %}\caption{{ '{'~ caption ~ '}' }}{% endif %}{% if label %}
+  \label{{ '{tab:'~ label ~'}' }}{% endif %}
+  {{tableRaw}}
+  \end{table}
+{% endmacro %}
+
+{% macro simpleTable(table, caption, label) %}
+  {% import _self as tables %}
+  {% set size = table|size %}
+  {% set temp %}
+    \begin{tabular}{{ '{'~ tables.tableFormat(size.width-1, '|') ~'}' }}
+      {{table|toLatex}}
+    \end{tabular}
+  {% endset %}
+  {{ tables.placeTable(temp) }}
+{% endmacro %}
+
+{% macro truthTable(heading, functions, caption, label) %}
+{% import _self as tables %}
+{% set n = (heading|length)-(functions|length) %}
+\begin{tabular}{| l | {{ 'c'|multiplyChar(n) }} | {{ 'c'|multiplyChar(functions|length) }} |}
+\hline
+{{ heading|join('&')}} \\ \hline
+{% for row in 0..(2**n-1) %}{{row}}&{{ intToBinary(row,'&', n) }}&{% if functions|length >0 %}{% for formula in functions %}{{ mathEvalRow(formula, intToBinaryArr(row, n)) ? 1 : 0 }}{% if not loop.last %}&{% endif %}{% endfor %}{% else %}{{ mathEvalRow(functions[0], intToBinaryArr(row, n))?1:0}}{% endif %}\\ \hline
+{% endfor %}\end{tabular}
+{% endmacro %}

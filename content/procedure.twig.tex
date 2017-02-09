@@ -3,13 +3,13 @@
 From the Lab Manual \cite{manual} :
 \subsection{Part A: Voltage Divider Design}
 \label{sub:Procedure Part A}
-{{ mac.image("img/c1.jpg", "Voltage Divider Design", "0.65", "voltage")}}
+Build a voltage divider that satisfies the given power requirements using the circuit
+given in Figure~\ref{fig:voltage}  Given, $R_1= 1 k\Omega$, $R_2 = 1.5 k\Omega$.
+{{ mac.image("img/c1.png", "Voltage Divider Design", "0.65", "voltage")}}
 \begin{enumerate}
-  Build a voltage divider that satisfies the given power requirements using the circuit
-  given in Figure~\ref{fig:voltage}  Given, R1= 1 kΩ, R2 = 1.5 kΩ.
-  \item Determine the proper resistance for R3 such that it absorbs 50\% of the power delivered by
-  the voltage source Vs. Detailed analysis and calculations need to be included in the lab
-  report.
+  \item Determine the proper resistance for $R_3$ such that it absorbs 50\% of the power delivered by
+  the voltage source $V_s$. \\
+  \textbf{The calculations are done in equation \ref{eq:calc1}}
   \item Build the circuit shown in Figure~\ref{fig:voltage}  on the bread board.
   \item Make the following connections between the Analog Discovery pins and the nodes on the
   board:
@@ -20,14 +20,14 @@ From the Lab Manual \cite{manual} :
     \item 2 – Scope Channel, 1- (Striped Orange)
   \end{itemize}
   \item Activate the Digilent Waveforms button which would display a window (Digilent
-  WaveForms 1) as shown in Figure~\ref{fig:dadwg}. The first step is to adjust the WaveGen.
+  WaveForms 1) as shown in Figure~\ref{fig:awg}. The first step is to adjust the WaveGen.
   Click on the WaveGen button and set the arbitrary waveform generator to generate a DC
   voltage of 2V offset.
-  {{ mac.image("img/awg.jpg", "Digilent Analog Discovery WaveGen setup", "0.65", "dadwg")}}
+  {{ mac.image("img/awg.png", "Digilent Analog Discovery WaveGen setup", "0.65", "awg")}}
   \item After making the adjustments on wave generator click the Run AWG1
   \item To observe the output, activate the voltmeter by clicking on the Voltmeter under the
   More Instruments tab.
-  \item Record the voltage across the resistor R1 and fill in the table by making the relevant
+  \item Record the voltage across the resistor $R_1$ and fill in the table by making the relevant
   measurement across all the three resistors.
   \item The obtained measurements should be included in the lab report.
   \item Perform the pertinent calculations based on the measured data to complete the table
@@ -36,14 +36,14 @@ From the Lab Manual \cite{manual} :
 
 \subsection{Part B: Current Divider Design}
 \label{sub:Procedure Part B}
-{{ mac.image("img/c2.jpg", "Current Divider Design", "0.65", "current")}}
+Build a current divider that satisfies the given power requirements with the circuit
+configuration in Figure~\ref{fig:current} Given $R_3 = 1.5 k\Omega$
+{{ mac.image("img/c2.png", "Current Divider Design", "0.65", "current")}}
 \begin{enumerate}
-  Build a current divider that satisfies the given power requirements with the circuit
-  configuration in Figure~\ref{fig:current} Given R3 = 1.5 kΩ
-  \item Determine the proper resistances for R1 and R2 such that they absorb 20\% and 30\% of
-  the power delivered by the voltage source Vs, respectively. Detailed analysis and
-  calculations need to be included in the lab report.
-  \item Build the circuit shown in Figure 4 on the bread board.
+  \item Determine the proper resistances for $R_1$ and $R_2$ such that they absorb 20\% and 30\% of
+  the power delivered by the voltage source Vs, respectively.\\
+  \textbf{The calculations are done in Equation \ref{eq:calc2}}
+  \item Build the circuit shown in Figure~\ref{fig:current}  on the bread board.
   \item Make the following connections between the Analog Discovery pins and the nodes on the
   board:
   \begin{itemize}
@@ -53,7 +53,7 @@ From the Lab Manual \cite{manual} :
     \item 0 – Ground (Black)
   \end{itemize}
   \item Activate the Digilent Waveforms button which would display a window (Digilent
-  WaveForms 1) as shown in Figure 3. The first step is to adjust the WaveGen. Click on
+  WaveForms 1) as shown in Figure~\ref{fig:awg} . The first step is to adjust the WaveGen. Click on
   the WaveGen button and set the arbitrary waveform generator to generate a DC voltage
   of 2 volts offset.
   \item After making the adjustments on wave generator click the Run AWG1
@@ -64,12 +64,12 @@ From the Lab Manual \cite{manual} :
 \end{enumerate}
 
 \subsection{Part C: Wheatstone Bridge}
-\label{sub:Procedure Part B}
-{{ mac.image("img/c3.jpg", "Wheatstone Design", "0.65", "wheatstone")}}
+\label{sub:Procedure Part C}
+Build a Wheatstone bridge circuit to determine the unknown resistor $R_x$ with the circuit
+configuration in Figure~\ref{fig:wheatstone} . Given $R_1 = 1 k\Omega$, $R_2 = 1.5 k\Omega$, $R_3 = 2.2 k\Omega$.
+{{ mac.image("img/c3.png", "Wheatstone Design", "0.65", "wheatstone")}}
 \begin{enumerate}
-  Build a Wheatstone bridge circuit to determine the unknown resistor Rx with the circuit
-  configuration in Figure~\ref{fig:wheatstone} . Given R1 = 1 kΩ, R2 = 1.5 kΩ, R3 = 2.2 kΩ.
-  \item Build the circuit shown in Figure 5 on the bread board.
+  \item Build the circuit shown in Figure~\ref{fig:wheatstone}  on the bread board.
   \item Make the following connections between the Analog Discovery pins and the nodes on the
   board:
   \begin{itemize}
@@ -79,12 +79,13 @@ From the Lab Manual \cite{manual} :
     \item 0 – Ground (Black)
   \end{itemize}
   \item Activate the Digilent Waveforms button which would display a window (Digilent
-  WaveForms 1) as shown in Figure 3. The first step is to adjust the WaveGen. Click on
+  WaveForms 1) as shown in Figure~\ref{fig:awg} . The first step is to adjust the WaveGen. Click on
   the WaveGen button and set the arbitrary waveform generator to generate a DC voltage
   of 5V offset.
   \item After making the adjustments on wave generator click the Run AWG1
   \item To observe the output, activate the voltmeter by clicking on the Voltmeter under the
   More Instruments tab.
-  \item Make the relevant measurements to find the value of the unknown resistor Rx.
-  \item Make the necessary calculations to find Rx.
+  \item Make the relevant measurements to find the value of the unknown resistor $R_X$.
+  \item \textbf{The calculations are done in Equation \ref{eq:calc3}}
+
 \end{enumerate}

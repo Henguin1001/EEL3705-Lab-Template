@@ -8,19 +8,17 @@
 {% endblock %}
 
 {% block content %}
-  {% if __.args.cov == "off" %}
-  {% else %}
-    \pagenumbering{roman}
+  \pagenumbering{roman}
 
-    {{ title.generate(settings.title) }}
-    {% block head %}{% endblock %}
-    \clearpage
-    \newpage
-    \tableofcontents
-    \listoftables
-    \newpage
-    \pagenumbering{arabic}
-  {% endif %}
+  {{ title.generate(settings.title) }}
+  {% block head %}{% endblock %}
+  \clearpage
+  \newpage
+  \tableofcontents
+  % \listoftables
+  \newpage
+  \pagenumbering{arabic}
+
   {% block body %}No body Provided{% endblock %}
 
 {% endblock %}
