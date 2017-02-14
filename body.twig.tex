@@ -1,39 +1,38 @@
-{{ extend('src/extension.js') }}
-{% extends 'src/cover.twig.tex' %}
+#!/usr/local/bin/twigtex
+{# Run this file (ex: 'twigtex body.twig.tex') #}
+{# or 'twigtex body.twig.tex --ignore=tc' works to ignore title and conclusion #}
+{# No need to edit, actual content goes in the respective files inside content/ #}
+{% extends 'lib/base.twig.tex' %}
 
 {% block packages %}
-\usepackage{enumerate}
-\usepackage[fleqn]{amsmath}
-\usepackage{caption}
-\usepackage[hidelinks]{hyperref}
-\newcommand{\parallelsum}{\mathbin{\|}}
-
 {{ parent() }}
 {% endblock %}
 
 {% block body %}
-
-  {% include 'content/intro.twig.tex' %}
-  \clearpage
-
-  \section{Experimental Procedure}
-  \label{sec:procedure}
-  {% include 'content/procedure.twig.tex' %}
-  \clearpage
-
-  \section{Results}
-  \label{sec:results}
-  {% include 'content/results.twig.tex' %}
-  \clearpage
-
-  {% include 'content/conclusion.twig.tex' %}
-  \clearpage
-
-  \begin{thebibliography}{9}
-    \bibitem{manual}
-    Dr. Petru Andrei, Ifedayo Ogundana, and Jose Cordova.
-    \textit{Lab 2 DC Circuits II: KCL, KVL, Series and Parallel Resistive Networks}
-  \end{thebibliography}
-
-
+  {# the 'ignore' argument specifys which sections can be ommitted #}
+  {% set options = {} %}
+  {% if ignore %}
+    {% set options = ignore|parseArgs %}
+  {% endif %}
+  {% if not options.i %}
+    {# Simply put the output each file in the document  #}
+    {% include 'content/intro.twig.tex' %}
+    \clearpage
+  {% endif %}
+  {% if not options.p %}
+    {% include 'content/design.twig.tex' %}
+    \clearpage
+  {% endif %}
+  {% if not options.r %}
+    {% include 'content/results.twig.tex' %}
+    \clearpage
+  {% endif %}
+  {% if not options.c %}
+    {% include 'content/conclusion.twig.tex' %}
+    \begin{thebibliography}{9}
+      \bibitem{manual}
+      Terasic Technologies Inc.
+      \textit{DE2-115 User Manual}
+    \end{thebibliography}
+  {% endif %}
 {% endblock %}

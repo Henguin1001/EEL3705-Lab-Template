@@ -1,11 +1,11 @@
 {
   "title":{
-    "number":"2",
-    "title":"Lab 2 DC Circuits II: KCL, KVL, Series and Parallel Resistive Networks ",
-    "section":"1",
-    "name":"Henry Troutman",
-    "partner":"Ross Fleming",
-    "instructor":"Dr. Petru Andrei",
-    "assistant":"Ifedayo Ogundana"
+    "Section No":"<section>",
+    "Lab Instructor":"<instructor>",
+    "Lab No":"<lab number>",
+    "Lab Title":"<lab name>",
+    "Name":"<name>",
+    "Partner’s Name":"<partner>",
+    "Date Performed":"<date Performed>"
   }
 }

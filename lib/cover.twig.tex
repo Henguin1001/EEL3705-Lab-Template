@@ -1,0 +1,25 @@
+{% macro generate(settings)%}
+  \begin{titlepage}
+    \centering
+    	{\scshape\LARGE FAMU - FSU College of Engineering \par}
+    	\vspace{0.75cm}
+    	{\scshape\large Department of Electrical and Computer Engineering\par}
+    	\vspace{0.5cm}
+    	{\scshape\large Spring 2017 Semester\par}
+    	\vspace{1cm}
+    	{\Large\bfseries EEL3705L Digital Logic Lab Report\par}
+      \vfill
+      {% if settings %}
+      \def\arraystretch{2.5}
+      \begin{tabular}{ | l | r |}
+        \hline
+        {% for item in settings %}
+          {\Large {{item[0]}} }  & { \Large {{item[1]}} } \\ \hline
+        {% endfor %}
+        {\Large Date Delivered }  & { \Large \today } \\ \hline
+        \end{tabular}
+      {% endif %}
+      \vspace{3cm}
+  \end{titlepage}
+
+{% endmacro %}

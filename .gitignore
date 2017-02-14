@@ -5,4 +5,5 @@
 *.lot
 *.lof
 *.out
+body.tex
 node_modules

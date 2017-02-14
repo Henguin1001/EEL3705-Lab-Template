@@ -1,0 +1,47 @@
+{{ extend('lib/extension.js') }}
+{% extends './head.twig.tex' %}
+{% import './cover.twig.tex' as title %}
+{% set settings = readJSON('settings.json') %}
+{% block packages %}
+  {{parent()}}
+  \usepackage[english]{babel}
+  \usepackage[utf8]{inputenc}
+  \usepackage{enumerate}
+  \usepackage[fleqn]{amsmath}
+  \usepackage{caption}
+  \usepackage[hidelinks]{hyperref}
+  \newcommand{\parallelsum}{\mathbin{\|}}
+  \usepackage{fancyhdr}
+  \usepackage{colortbl, booktabs}
+  \usepackage{xcolor}
+  \usepackage{hhline}
+  \definecolor{Gray}{gray}{0.9}
+  \pagestyle{fancy}
+  \fancyhf{}
+  \rhead{Lab {{ settings.title["Lab No"] }} }
+  \lhead{EEL-3705L Digital Logic Laboratory Report}
+  \lfoot{ {{ settings.title["Name"] }} }
+  \rfoot{Page \thepage }
+{% endblock %}
+
+{% block content %}
+  {% set options = {} %}
+  {% if ignore %}
+    {% set options = ignore|parseArgs %}
+  {% endif %}
+  {% block cover %}
+    {% if not options.t %}
+      \pagenumbering{roman}
+      {{ title.generate(settings.title|objToArr) }}
+      \clearpage
+      \newpage
+      \tableofcontents
+      \newpage
+      \pagenumbering{arabic}
+    {% endif %}
+  {% endblock %}
+  {% block head %}{% endblock %}
+
+  {% block body %}No body Provided{% endblock %}
+  \centering END OF DOCUMENT
+{% endblock %}

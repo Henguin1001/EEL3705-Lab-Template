@@ -1,0 +1,8 @@
+
+{% macro placeFigure(file, caption, size, ref) %}
+  \begin{figure}[!ht]
+  \centering
+  \caption{{ '{' ~ caption ~ '\label{fig:' ~ref~ '}}' }}
+  \includegraphics[width={{size}}\textwidth]{{ '{'~ file ~'}'}}
+  \end{figure}
+{% endmacro %}

@@ -1,3 +1,0 @@
-{% import 'lib/tables.twig.tex' as tables %}
-
-{{tables.truthTable(['a','b','c','f'],['A and B or C'])}}
