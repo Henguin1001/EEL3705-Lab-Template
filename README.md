@@ -8,14 +8,14 @@ npm install -g twigtex
 ```
 then clone:
 ```
-git clone
+git clone https://github.com/Henguin1001/EEL3705-Lab-Template.git
 ```
 ## Some resources
-The template is based off of Latex and uses the Twig templating language the documentation
+The template is based off of Latex and uses the Twig templating language and the documentation
 below should be helpful.
 * [Latex introduction](http://ricardo.ecn.wfu.edu/~cottrell/ecn297/latex_tut.pdf): an introduction to latex
 but a simple google search for what you need will work (ex: 'latex bulleted list').
-* [Twig](http://twig.sensiolabs.org/): Twig templating language homepage.
+* [Twig introduction](http://twig.sensiolabs.org/doc/2.x/templates.html): overview of the twig language.
 * [Twig documentation](http://twig.sensiolabs.org/doc/2.x/): documentation for the language.
 * [Twigjs implementation](https://github.com/twigjs/twig.js/wiki/Implementation-Notes): as the program is written
 in javascript the templating language is only a javascript implementation of twig. This page shows the functions and filters
@@ -31,7 +31,7 @@ This will run both the template compiler and the latex compiler, currently the o
 ```bash
 twigtex body.twig.tex -k
 ```
-In which the output will be sent to the stdout
+In which the output will be sent to the stdout.
 Arguments can be sent to the document as well. The template is set up to accept the argument `--ignore`
 where certain parts of the document won't get rendered. For example
 ```bash
@@ -84,17 +84,20 @@ This lab covers the ever expanding field of voltage dividers. There is so much t
 \section{Introduction}
 \label{sec:Introduction}
 Inline math $V_{in} = 5$ \\
-Multiline math: \[
-V_{in} = \frac{1}{2} \times V_{out}
+Multiline math:
+\[
+  V_{in} = \frac{1}{2} \times V_{out}
 \]
 ```
 This resulted in the following
-[Imgur](http://i.imgur.com/g5PKcL2.png)
-## Objects
-Inside the `lib/` directory there are macros that can be used in the document (table, truth table, kmaps). And the
-`obj/` directory should contain macros built on a per lab basis such as defining a set of images or tables specific
-to the specifications of that lab. In order to include these macros the following can be added
-```latex
+![Imgur](http://i.imgur.com/g5PKcL2.png)
+### Objects
+* Inside the `lib/` directory there are macros that can be used in the document (table, truth table, kmaps). These are provided.
+* Inside the `obj/` directory macros can be added on a per lab basis such as defining a set of images or tables specific
+to the specifications of that lab.
+
+An example of using one of the table macros
+```twig
 {% import '../lib/tables.twig.tex' as tables %}
 {% set myTableCSV %}
   1,2,3
@@ -104,4 +107,17 @@ to the specifications of that lab. In order to include these macros the followin
 {% set myTable = CSV(myTableCSV)%}
 {{tables.simpleTable(myTable, 'Sample Table')}}
 ```
-This results in: [Imgur](http://i.imgur.com/0yrReRV.png)
+This results in: ![Imgur](http://i.imgur.com/0yrReRV.png)
+
+The import statement defines all of the macros in the `../lib/tables.twig.tex` file
+under the name tables. This snippet shows two types of set notations. The block type and
+line type. The block is setting the variable myTableCSV as a string defined by `1,2...`.
+Since this is formatted in  *comma separated values* the string can then be put through the CSV function
+to gain the functionality of table. The output of the function is stored in the myTable variable.
+Finally, the macro *simpleTable* is called with the table and the name of the table as parameters. This
+function also has a third optional parameter which is the label. The table can be identified by this label.
+Such as:
+```latex
+See Table \ref{tab:example}
+{{tables.simpleTable(myTable, 'Sample Table', 'example')}}
+```
