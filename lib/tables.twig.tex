@@ -20,7 +20,7 @@
   {% set size = table|size %}
   {% set temp %}
     \begin{tabular}{{ '{'~ tables.tableFormat(size.width-1, '|') ~'}' }}
-      {{table|toLatex}}
+      \hline {{table|toLatex('\\ \hline')}}
     \end{tabular}
   {% endset %}
   {{ tables.placeTable(temp) }}
