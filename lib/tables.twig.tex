@@ -23,7 +23,7 @@
       \hline {{table|toLatex('\\ \hline')}}
     \end{tabular}
   {% endset %}
-  {{ tables.placeTable(temp) }}
+  {{ tables.placeTable(temp, caption, label) }}
 {% endmacro %}
 
 {% macro truthTable(heading, functions, caption, label) %}

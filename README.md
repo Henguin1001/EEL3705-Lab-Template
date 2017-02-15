@@ -107,17 +107,19 @@ An example of using one of the table macros
 {% set myTable = CSV(myTableCSV)%}
 {{tables.simpleTable(myTable, 'Sample Table')}}
 ```
-This results in: ![Imgur](http://i.imgur.com/0yrReRV.png)
+This results in: ![Imgur](http://i.imgur.com/VZEWbjB.png)
 
-The import statement defines all of the macros in the `../lib/tables.twig.tex` file
-under the name tables. This snippet shows two types of set notations. The block type and
+* The import statement defines all of the macros in the `../lib/tables.twig.tex` file
+under the name tables.
+* This snippet shows two types of set notations. The block type and
 line type. The block is setting the variable myTableCSV as a string defined by `1,2...`.
-Since this is formatted in  *comma separated values* the string can then be put through the CSV function
+* Since this is formatted in  *comma separated values* the string can then be put through the CSV function
 to gain the functionality of table. The output of the function is stored in the myTable variable.
-Finally, the macro *simpleTable* is called with the table and the name of the table as parameters. This
+* Finally, the macro *simpleTable* is called with the table and the name of the table as parameters. This
 function also has a third optional parameter which is the label. The table can be identified by this label.
 Such as:
 ```latex
 See Table \ref{tab:example}
 {{tables.simpleTable(myTable, 'Sample Table', 'example')}}
 ```
+Which results in: ![Imgur](http://i.imgur.com/FMZx4Xg.png)
