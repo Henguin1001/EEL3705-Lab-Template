@@ -26,7 +26,7 @@ The template can be run by simply issuing the command:
 ```bash
 twigtex body.twig.tex
 ```
-This will run both the template compiler and the latex compiler, currently the only way
+This will run both the template compiler and the latex compiler (pdflatex), currently the only way
  to disable the latex compiler is to name files without the .tex extension or run
 ```bash
 twigtex body.twig.tex -k

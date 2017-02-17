@@ -62,3 +62,30 @@
     \end{tabular}
   \end{table}
 {% endmacro %}
+
+{% macro kmap4(formula, desc, label, final) %}
+  {% set codeab = [["0","0"],["0","1"],["1","1"],["1","0"]] %}
+  \begin{table}[!ht]
+    \captionsetup{font=large}
+    \centering
+    \caption{{ '{' ~ desc ~ '}'}}
+    \label{tab:{{label}}}
+    \begin{tabular}{ c | c c  c  c  c c|}
+    cd\textbackslash ab  & &
+    {% for code in codeab %}
+        {{code|join('')}} &
+    {% endfor %} \\ \hline
+    {% for r in codeab  %}
+      {{r[0]}}{{r[1]}} & &
+      {% for code in codeab %}
+      {% set test = code|merge(r) %}
+  {{ mathEvalRow(formula, test)? '\cellcolor{Gray}1':'0' }} {% if not loop.last %}&{% endif %}
+      {% endfor %} & \\
+    {% endfor %}
+    {% if final %}
+    \multicolumn{7}{c}{ }\\
+    \multicolumn{7}{c}{ {{final}} }
+    {% endif %}
+    \end{tabular}
+  \end{table}
+{% endmacro %}
